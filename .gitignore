@@ -1,0 +1,5 @@
+# ignore ipython notebooks checkpoints
+.ipynb_checkpoints
+
+# ignore data folder
+data/
