@@ -276,13 +276,14 @@ def plot_pattern(df, col, statistic):
     return None
 
 
-def plot_pattern_country(df, col, statistic, xlower, xupper, ylower, yupper, title):
+def plot_pattern_country(df, col, xlower, xupper, ylower, yupper, title, statistic=np.mean):
     '''
     A refined version of the "plot_pattern() function above"
     df: the dataframe to be plotted
     col: the column to be plotted. The column should contain a numerical list
     e.g. [1, 9, 3, 16, 8, 8, 1, 3, 7, 1, 11, 2, 4]
     statistic: a function to calculate certain empirial moment for a given list. e.g. np.mean()
+               default: np.mean
     xlower: plt.xlim's lower end
     xupper: plt.xlim's upper end
     ylower: plt.ylim's lower end
@@ -292,7 +293,7 @@ def plot_pattern_country(df, col, statistic, xlower, xupper, ylower, yupper, tit
     Returns:
     None
     
-    E.g. plot_pattern_country(df_1, 'DT_ROOT_idx', np.median, 0, 20, 0, 0.5, 'ROOT Word Position per Country')
+    E.g. plot_pattern_country(df_1, 'DT_ROOT_idx', 0, 20, 0, 0.5, 'ROOT Word Position per Country', np.median)
     '''
     countries = list(df.groupby('label').size().index)
     fig, axs = plt.subplots(3,3)
@@ -305,14 +306,6 @@ def plot_pattern_country(df, col, statistic, xlower, xupper, ylower, yupper, tit
     fig.suptitle(title, fontsize=20)
     fig.set_size_inches(18.5, 10.5, forward=True)
     return None
-
-
-def tag_sent_gram(s, n):
-    result = []
-    n_grams = ngrams(s.split(' '), n)
-    for grams in n_grams:
-        result.append('_'.join(grams))
-    return result
 
 
 def k_fold_doc2vec_clf(cv_data, text_col, word_window, hidden_nodes, clf, literal=True):
@@ -352,6 +345,13 @@ def k_fold_doc2vec_clf(cv_data, text_col, word_window, hidden_nodes, clf, litera
         scores.append(accuracy_score(y_test, y_pred))
     return scores
 
+
+def tag_sent_gram(s, n):
+    result = []
+    n_grams = ngrams(s.split(' '), n)
+    for grams in n_grams:
+        result.append('_'.join(grams))
+    return result
 
 def loop_body(body, n):
     result = []
