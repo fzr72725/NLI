@@ -200,7 +200,7 @@ def tag_docs(docs, col, literal=True):
              default: True
     
     Returns:
-    a TaggedDocument object, each element contains tokenized text content and document tag
+    a TaggedDocument object, each element contains tokenized text content and document tag, the tag here     contains 'label' and 'doc_id' columns
     
     E.g. 
     train_tagged = tag_docs(df_train, 'essay_content')
@@ -209,8 +209,10 @@ def tag_docs(docs, col, literal=True):
 
     '''
     if literal:
+        #tagged = docs.apply(lambda r: TaggedDocument(words=simple_preprocess(r[col]), tags=[r.label+'_'+str(r.doc_id)]), axis=1)
         tagged = docs.apply(lambda r: TaggedDocument(words=simple_preprocess(r[col]), tags=[r.label]), axis=1)
     else:
+        #tagged = docs.apply(lambda r: TaggedDocument(words=r[col].split(), tags=[r.label+'_'+str(r.doc_id)]), axis=1)
         tagged = docs.apply(lambda r: TaggedDocument(words=r[col].split(), tags=[r.label]), axis=1)
     return tagged
 
@@ -249,6 +251,8 @@ def vec_for_learning(doc2vec_model, tagged_docs):
     y_train, X_train = vec_for_learning(model, train_docs)
     '''
     sents = tagged_docs.values
+    #targets, regressors = zip(\
+            #*[(doc.tags[0].split('_')[0], doc2vec_model.infer_vector(doc.words, steps=20)) for doc in sents])
     targets, regressors = zip(\
             *[(doc.tags[0], doc2vec_model.infer_vector(doc.words, steps=20)) for doc in sents])
     return targets, regressors
