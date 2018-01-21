@@ -111,7 +111,7 @@ def load_data_multi(root):
                 continue
             doc_path = path+'/'+f
             all_docs.append(doc_path)
-    print len(all_docs)
+    #print len(all_docs)
     df = pd.DataFrame({'path':all_docs, 'doc_id':range(1,len(all_docs)+1)})
     df['author_code'] = df['path'].apply(lambda x: x.split('/')[-1])
     df['essay_content'] = df['path'].apply(read_file)
@@ -400,12 +400,13 @@ def print_confusion_matrix(y_test, y_pred):
         cols = list(countries) + miss_countries + ['All']
         df_confusion = df_confusion[cols]
     countries = list(df_confusion.index[:-1])
-    accuracies = []
+    recalls = []
     tp_all = 0
     for i, c in enumerate(countries):
         tp_all += df_confusion[c][i]
-        accuracies.append(df_confusion[c][i]*1./df_confusion['All'][i])
+        recalls.append(df_confusion[c][i]*1./df_confusion['All'][i])
     # Calculate overall accuracy
-    accuracies.append(tp_all*1./df_confusion['All']['All'])
-    df_confusion['Accuracy'] = accuracies
+    #recalls.append(str(tp_all*1./df_confusion['All']['All'])+'(Overall Accuracy)')
+    recalls.append(tp_all*1./df_confusion['All']['All'])
+    df_confusion['Recall'] = recalls
     return df_confusion
