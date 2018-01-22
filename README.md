@@ -90,7 +90,7 @@ Judged by the overall accuracy, Doc2vec document representation training a logis
 ![final confusion](./images/confusion_max.png)
 
 ## Future Work
-1. Improve Accuracy of classification among Japanese and Korean learners' English writing
+1. Improve accuracy of classification among Japanese and Korean learners' English writing
 2. Run a test over out of corpus documents
 3. Use pre-trained word2vec models to generate document vectors
 
