@@ -96,4 +96,5 @@ Judged by the overall accuracy, Doc2vec document representation training a logis
 
 ## Additional Information
 I have also put together several articles (some are still in progress) that illustrate the approaches I took for each of the steps mentioned above.
+
 [My Pipeline of Text Classification Using Gensim's Doc2Vec and Logistic Regression](https://fzr72725.github.io/2018/01/14/genism-guide.html)
