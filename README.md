@@ -91,7 +91,7 @@ Judged by the overall accuracy, Doc2vec document representation training a logis
 
 ## Future Work
 1. Improve accuracy of classification among Japanese and Korean learners' English writing
-2. Run a test over out of corpus documents
+2. Explore English writings from learners of other native languages, or higher proficiency (some Chinese authors wrote their books in English)
 3. Use pre-trained word2vec models to generate document vectors
 
 ## Additional Information
