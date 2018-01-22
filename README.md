@@ -11,8 +11,8 @@ My project is inspired by the idea of applying machine learning techniques on NL
 For my project, I used the [International Corpus Network of Asian Learners of English (ICNALE)](http://language.sakura.ne.jp/icnale/download.html) provdided by Dr. Shin'ichiro Ishikawa, Kobe University, Japan. The corpus contains short English essays written by English learners from nine different native language backgrounds including native English.
 
 A unique feature of the ICNALE is that the topics are controlled, which makes any type of contrastive interlanguage analysis more reliable and valid. All essays in the corpus are strictly written around the two topics below:
-1) Is it important for college students to have a part time job?
-2) Should smoking be completely banned at all the restaurants in the country?
+_1) Is it important for college students to have a part time job?_
+_2) Should smoking be completely banned at all the restaurants in the country?_
 
 ## Feature Engineering
 ### Feature Extraction
