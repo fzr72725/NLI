@@ -17,6 +17,7 @@ A unique feature of the ICNALE is that the topics are controlled, which makes an
 ## Feature Engineering
 ### Feature Extraction
 | Feature Name | Description | Example |
+| --- | --- | --- |
 | unique_lemma | Count of unique lemmatized words in an essay | 122 |
 | avg_stc_length | Count of average sentence length (how many words are there in a sentence) of an essay | 19 |
 | total_stc | Count of sentences in an essay | 12 |
@@ -41,7 +42,7 @@ _Note: Doc2Vec vector feature is generated in an independent pipeline._
 
 ### Exploratory Data Analysis
 There are some fascinating findings based on the generated features, below is one example:
-![ens-tha](../images/ens-tha.png)
+![ens-tha](./images/ens-tha.png)
 The plot above demonstrates: Compare to native speakers, learners from Thailand tend to write more much longer sentences. This may be explained by the fact that in Thai(the language) script, full-stop doesn't exist. Therefore, the learners brought this habit to their L2 (English) writing.
 
 ## Feature Selection and Modeling
@@ -49,12 +50,12 @@ The plot above demonstrates: Compare to native speakers, learners from Thailand 
 For feature selection, I used different combination of features and models to train the text classifier. I used the recall and cross-class accuracy scores to evaluate the classifier performance. During this process, there are some interesting observations:
 1. Random Forest Feature Importance
 I used several numeric features on random forest classifier, below is the feature importance chart of all used features
-![feature imp](../images/feature_imp.png)
+![feature imp](./images/feature_imp.png)
 
 2. GradientBoosting Partial Dependence Plot
 The same set of numeric features were used to train gradient boosting classifier. Below are two plots of _Japanese and Korean learner group_, the partial dependence plot shows that when the total count of adjective and adverb repetition is between 20 and 28, there is a higher probability the essay will be classified as Korean.
-![jpn](../images/jpn_partial.png)
-![kor](../images/kor_partial.png)
+![jpn](./images/jpn_partial.png)
+![kor](./images/kor_partial.png)
 
 3. High Frequency Syntactic Patterns
 When using POS ngram and logistic regression to train to classifier, the model identified high frequency syntactic patterns from _Pakistani learner group_. Below are some examples are these highly repeated patterns:
@@ -80,7 +81,7 @@ When using POS ngram and logistic regression to train to classifier, the model i
 ### Best Feature and Model
 Judged by the overall accuracy, Doc2vec document representation training a logistic regression model is the final strategy.
 ### Final Performance
-![final confusion](../images/confusion_max)
+![final confusion](./images/confusion_max)
 
 ## Future Work
 1. Improve Accuracy of classification among Japanese and Korean learners' English writing
