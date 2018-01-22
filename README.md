@@ -93,3 +93,7 @@ Judged by the overall accuracy, Doc2vec document representation training a logis
 1. Improve Accuracy of classification among Japanese and Korean learners' English writing
 2. Run a test over out of corpus documents
 3. Use pre-trained word2vec models to generate document vectors
+
+## Additional Information
+I have also put together several articles (some are still in progress) that illustrate the approaches I took for each of the steps mentioned above.
+[My Pipeline of Text Classification Using Gensim's Doc2Vec and Logistic Regression](https://fzr72725.github.io/2018/01/14/genism-guide.html)
