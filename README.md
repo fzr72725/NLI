@@ -61,16 +61,17 @@ The same set of numeric features were used to train gradient boosting classifier
 
 3. High Frequency Syntactic Patterns
 When using POS ngram and logistic regression to train to classifier, the model identified high frequency syntactic patterns from _Pakistani learner group_. Below are some examples are these highly repeated patterns:
+
 `NOUN VERB DET NOUN`
-”Students do the part-time-job …”
-“men do the part-time-job …”
-“parents offered the money …”
+- ”Students do the part-time-job …”
+- “men do the part-time-job …”
+- “parents offered the money …”
 
 `ADP ADJ NOUN END-PUNCT`
-“… on his family.”
-“… to their studies.”
-“… in our country.”
-“… for his health.”
+- “… on his family.”
+- “… to their studies.”
+- “… in our country.”
+- “… for his health.”
 
 **Models Used**
 - Logistic regression
