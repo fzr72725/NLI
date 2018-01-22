@@ -76,7 +76,7 @@ When using POS ngram and logistic regression to train to classifier, the model i
 - “… in our country.”
 - “… for his health.”
 
-**Models Used**
+### Models Used
 - Logistic regression
 - Naive Bayse
 - Random Forest
