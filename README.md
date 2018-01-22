@@ -43,6 +43,7 @@ _Note: Doc2Vec vector feature is generated in an independent pipeline._
 ### Exploratory Data Analysis
 There are some fascinating findings based on the generated features, below is one example:
 ![ens-tha](./images/ens-tha.png)
+
 The plot above demonstrates: Compare to native speakers, learners from Thailand tend to write more much longer sentences. This may be explained by the fact that in Thai(the language) script, full-stop doesn't exist. Therefore, the learners brought this habit to their L2 (English) writing.
 
 ## Feature Selection and Modeling
@@ -54,7 +55,11 @@ I used several numeric features on random forest classifier, below is the featur
 
 2. GradientBoosting Partial Dependence Plot
 The same set of numeric features were used to train gradient boosting classifier. Below are two plots of _Japanese and Korean learner group_, the partial dependence plot shows that when the total count of adjective and adverb repetition is between 20 and 28, there is a higher probability the essay will be classified as Korean.
+
+Japanese Learners
 ![jpn](./images/jpn_partial.png)
+
+Korean Learners
 ![kor](./images/kor_partial.png)
 
 3. High Frequency Syntactic Patterns
