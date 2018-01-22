@@ -404,9 +404,9 @@ def print_confusion_matrix(y_test, y_pred):
     tp_all = 0
     for i, c in enumerate(countries):
         tp_all += df_confusion[c][i]
-        recalls.append(df_confusion[c][i]*1./df_confusion['All'][i])
+        recalls.append(round(df_confusion[c][i]*1./df_confusion['All'][i], 2))
     # Calculate overall accuracy
     #recalls.append(str(tp_all*1./df_confusion['All']['All'])+'(Overall Accuracy)')
-    recalls.append(tp_all*1./df_confusion['All']['All'])
+    recalls.append(round(tp_all*1./df_confusion['All']['All'], 2))
     df_confusion['Recall'] = recalls
     return df_confusion
