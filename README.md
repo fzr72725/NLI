@@ -1,6 +1,5 @@
 # Naked Word: Nationalities of World Language
-
-_A native language identification project_
+## -- A native language identification project
 
 ## Motivation
 Regardless how rapid globalization develops, our world is still a very diverse place. Take the world language -- English for example, there are so many different flavors due to the fact that a large number of English speakers' native tongues are not English. These flavors make native language identification (NLI) possible. **NLI is the task of determining an author's native language (L1) based only on their writings in a second language (L2).** NLI plays an important role not only in pure linguistic flied, but also in today's marketing, advertising, multinational corporate training, and even forensic investigations.
@@ -40,7 +39,6 @@ _2) Should smoking be completely banned at all the restaurants in the country?_
 | DT_insent_pos_ngram | same as feature "DT_pos_join", but only generate ngram terms within sentence boundary | - |
 | DT_insent_arch_ngram | same as feature "DT_archs_join", but only generate ngram terms within sentence boundary | - |
 | Doc2Vec vectors| Hidden layer vectors produced by a 3-layer neural network | - |
-_Note: Doc2Vec vector feature is generated in an independent pipeline._
 
 ### Exploratory Data Analysis
 There are some fascinating findings based on the generated features, below is one example:
