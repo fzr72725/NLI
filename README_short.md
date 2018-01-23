@@ -29,19 +29,14 @@ The plot above demonstrates: Compare to native speakers, learners from Thailand 
 ## Feature Selection and Modeling
 ### Process and Insights
 For feature selection, I used different combination of features and models to train the text classifier. I used the recall and cross-class accuracy scores to evaluate the classifier performance. During this process, there are some interesting observations:
-1. Random Forest Feature Importance
 
-I used several numeric features on random forest classifier, below is the feature importance chart of all used features
-
-![feature imp](./images/feature_imp.png)
-
-2. GradientBoosting Partial Dependence Plot
+1. GradientBoosting Partial Dependence Plot
 
 The same set of numeric features were used to train gradient boosting classifier. Below are two plots of _Japanese and Korean learner group_, the partial dependence plot shows that when the total count of adjective and adverb repetition is between 20 and 28, there is a higher probability the essay will be classified as Korean.
 
 ![jp-ko](./images/jp_ko.png)
 
-3. High Frequency Syntactic Patterns
+2. High Frequency Syntactic Patterns
 
 When using POS ngram and logistic regression to train to classifier, the model identified high frequency syntactic patterns from _Pakistani learner group_. Below are some examples are these highly repeated patterns:
 
