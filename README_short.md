@@ -7,38 +7,18 @@ Regardless how rapid globalization develops, our world is still a very diverse p
 My project is inspired by the idea of applying machine learning techniques on NLI. The ultimate goal is to train a classifier to identify a writer's native tongue, given a piece of English writing from him or her.
 
 ## Data Description
-For my project, I used the [International Corpus Network of Asian Learners of English (ICNALE)](http://language.sakura.ne.jp/icnale/download.html) provdided by Dr. Shin'ichiro Ishikawa, Kobe University, Japan. The corpus contains short English essays written by English learners from nine different native language backgrounds including native English.
-
-A unique feature of the ICNALE is that the topics are controlled, which makes any type of contrastive interlanguage analysis more reliable and valid. All essays in the corpus are strictly written around the two topics below:
-
-_1) Is it important for college students to have a part time job?_
-
-_2) Should smoking be completely banned at all the restaurants in the country?_
+For my project, I used the _International Corpus Network of Asian Learners of English (ICNALE)_ provdided by Dr. Shin'ichiro Ishikawa, Kobe University, Japan. The corpus contains short English essays written by English learners from nine different native language backgrounds including native English.
 
 ## Feature Engineering
 ### Feature Extraction
-| Feature Name | Description | Example |
-| --- | --- | --- |
-| unique_lemma | Count of unique lemmatized words in an essay | 122 |
-| avg_stc_length | Count of average sentence length (how many words are there in a sentence) of an essay | 19 |
-| total_stc | Count of sentences in an essay | 12 |
-| DT_pos | Part-of-Speech tags for each word in an essay | ...PROPN VERB ADJ ADP PART VERB... |
-| DT_archs | Dependent tree element labeling for each word in an essay | ...nsubj ROOT acomp prep pobj mark nsubj... |
-| POS_adjv_repeat_rate | The portion of repeated adjectives and adverbs in an essay's overall vocabulary | 0.02 |
-| POS_adjv_repeat_cnt | Total number of repeated adjectives and adverbs in an essay | 6 |
-| DT_max_dp_cnts | List of max child-word count of each sentence for an essay | [4, 6, 6, 8, 8, 6, 8, 4, 5, 7, 6] |
-| DT_max_dp_cnts_std | The standard deviation of a DT_max_dp_cnts value | 1.56 |
-| DT_ROOT_idx | List of positions of the ROOT word in each sentence | [1, 9, 3, 16, 7, 1, 11, 2, 4] |
-| DT_ROOT_idx_mean | The mean of a DT_ROOT_idx value | 12.87 |
-| DT_pass_cnt | List of passive words in each sentence | [0, 0, 1, 0, 0, 0, 0, 2, 0] |
-| DT_pass_cnt_sum | The sum of a DT_pass_cnt value | 3 |
-| DT_mark_cnt | List of mark words in each sentence | [0, 0, 0, 0, 1, 0, 0, 0, 0] |
-| DT_mark_cnt_sum | The sum of a DT_mark_cnt value | 1 |
-| DT_pos_join | converting feature "DT_pos" into one string of pos tags of an essay | - |
-| DT_archs_join | converting feature "DT_archs" into one string of pos tags of an essay | - |
-| DT_insent_pos_ngram | same as feature "DT_pos_join", but only generate ngram terms within sentence boundary | - |
-| DT_insent_arch_ngram | same as feature "DT_archs_join", but only generate ngram terms within sentence boundary | - |
-| Doc2Vec vectors| Hidden layer vectors produced by a 3-layer neural network | - |
+There are many possible ways to extract features out of text body. For the corpus I'm working on, there are five main categories of features:
+- Ad hoc numeric statistics
+- Part-of-Speech Tagging
+- Depenence Tree Parsing
+- Bag of Words
+- Doc2Vec
+
+For a complete list of generated features, refer to https://github.com/fzr72725/NLI/blob/master/README.md
 
 ### Exploratory Data Analysis
 There are some fascinating findings based on the generated features, below is one example:
@@ -65,11 +45,6 @@ The same set of numeric features were used to train gradient boosting classifier
 
 When using POS ngram and logistic regression to train to classifier, the model identified high frequency syntactic patterns from _Pakistani learner group_. Below are some examples are these highly repeated patterns:
 
-`NOUN VERB DET NOUN`
-- ”Students do the part-time-job …”
-- “men do the part-time-job …”
-- “parents offered the money …”
-
 `ADP ADJ NOUN END-PUNCT`
 - “… on his family.”
 - “… to their studies.”
@@ -92,9 +67,8 @@ Judged by the overall accuracy, Doc2Vec document representation training a logis
 ## Future Work
 1. Improve accuracy of classification among Japanese and Korean learners' English writing
 2. Explore English writings from learners of other native languages, or higher proficiency (some Chinese authors wrote their books in English)
-3. Use pre-trained Doc2Vec models to generate document vectors
+3. Use pre-trained doc2vec models to generate document vectors
 
 ## Additional Information
-I have also put together several articles (some are still in progress) that illustrate the approaches I took for each of the steps mentioned above.
-
-[My Pipeline of Text Classification Using Gensim's Doc2Vec and Logistic Regression](https://fzr72725.github.io/2018/01/14/genism-guide.html)
+**My Pipeline of Text Classification Using Gensim's Doc2Vec and Logistic Regression**
+https://fzr72725.github.io/2018/01/14/genism-guide.html
