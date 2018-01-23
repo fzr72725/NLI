@@ -1,5 +1,5 @@
 # Naked Word: Nationalities of World Language
-## -- A native language identification project
+## -- A Native Language Identification Project
 
 ## Motivation
 Regardless how rapid globalization develops, our world is still a very diverse place. Take the world language -- English for example, there are so many different flavors due to the fact that a large number of English speakers' native tongues are not English. These flavors make native language identification (NLI) possible. **NLI is the task of determining an author's native language (L1) based only on their writings in a second language (L2).** NLI plays an important role not only in pure linguistic flied, but also in today's marketing, advertising, multinational corporate training, and even forensic investigations.
